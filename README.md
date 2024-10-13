@@ -21,9 +21,13 @@
 
 
 
-
 ## 클래스 다이어그램
+![img_3.png](img_3.png)
 
-
-
-
+* OrderController - 사용자 요청을 받는 컨트롤러
+* OrderServiceFacade -  OCP (Open Closed Principle) (개방, 폐쇄 원칙이라고 하며 '소프트웨어 개체(클래스, 모듈, 함수 등)는 확장에 대해 열려 있어야 하고, 수정에 대해서는 닫혀 있어야 한다.'는 프로그래밍 원칙입니다.)  개방 폐쇄 원칙 으로 인한  인터페이스 추가
+* OrderServiceFacadeImpl - 확정성을 고려한 facade 패턴  서비스 간 gateway 역할을 수행 하도록 작성
+* OrderService - 실제 로직 수행 서비스
+* InMemoryOrderRepository - 메모리 저장소 역할 수행
+* Order - 저장 데이터 필드
+* orderClient - 외부 호출 담당하는 역할

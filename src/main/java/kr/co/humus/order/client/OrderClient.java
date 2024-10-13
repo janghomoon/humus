@@ -3,6 +3,7 @@ package kr.co.humus.order.client;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URI;
+import kr.co.humus.common.enums.CommonErrorCode;
 import kr.co.humus.common.exception.HumusException;
 import kr.co.humus.order.common.configuration.ExternalConfiguration;
 import kr.co.humus.order.dto.request.ExternalOrderSaveRequest;
@@ -33,7 +34,7 @@ public class OrderClient {
         HttpHeaders headers = generateHeaders();
         ResponseEntity<String> responseEntity = restTemplate.exchange(encodeUrl(url),
                 HttpMethod.GET, new RequestEntity<>(headers, HttpMethod.GET, encodeUrl(url)), String.class);
-        if (!isSuccess(responseEntity.getStatusCode())) throw new HumusException();
+        if (!isSuccess(responseEntity.getStatusCode())) throw new HumusException(CommonErrorCode.EXTERNAL_SERVER_ERROR);
         return StringToDto(responseEntity.getBody(), ExternalOrderResponse.class);
     }
     public void sendExternalOrderList(ExternalOrderSaveRequest request) {
@@ -41,7 +42,7 @@ public class OrderClient {
         HttpHeaders headers = generateHeaders();
         ResponseEntity<String> responseEntity = restTemplate.exchange(encodeUrl(url),
                 HttpMethod.POST, new RequestEntity<>(request, headers, HttpMethod.POST, encodeUrl(url)), String.class);
-        if (!isSuccess(responseEntity.getStatusCode())) throw new HumusException();
+        if (!isSuccess(responseEntity.getStatusCode())) throw new HumusException(CommonErrorCode.EXTERNAL_SERVER_ERROR);
     }
 
     //수정
@@ -49,7 +50,7 @@ public class OrderClient {
         try {
             return objectMapper.readValue(responseBody, responseType);
         } catch (JsonProcessingException e) {
-            throw new HumusException();
+            throw new HumusException(CommonErrorCode.JSON_PARSING_ERROR);
         }
     }
 

@@ -15,6 +15,9 @@ public class InMemoryOrderRepository {
         orders.add(order);
         return order;
     }
+    public void saveAll(List<Order> orders) {
+        orders.addAll(orders);
+    }
     //단일 조회
     public Optional<Order> findById(long orderId) {
         return orders.stream().filter(e -> e.getOrderId().equals(orderId)).findFirst();

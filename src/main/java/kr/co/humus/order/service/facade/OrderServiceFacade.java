@@ -4,13 +4,13 @@ import kr.co.humus.order.dto.request.ExternalOrderSaveRequest;
 import kr.co.humus.order.dto.response.FindOrderData;
 import kr.co.humus.order.dto.response.FindOrderResponse;
 
-public interface OrderService {
+public interface OrderServiceFacade {
 
-    Void getExternalOrder();
+    void getExternalOrder();
 
     FindOrderData getOrderInfo(Long orderId);
 
     FindOrderResponse getOrderList();
 
-    Void postExternalOrder(ExternalOrderSaveRequest request);
+    void postExternalOrder(ExternalOrderSaveRequest request);
 }

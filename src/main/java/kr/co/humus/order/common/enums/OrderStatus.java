@@ -1,5 +1,6 @@
 package kr.co.humus.order.common.enums;
 
+import java.util.Arrays;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -13,4 +14,18 @@ public enum OrderStatus {
     ;
     private final String code;
     private final String desc;
+
+    public static OrderStatus fromCode(String code) {
+        return Arrays.stream(values())
+                .filter(f -> f.getCode().equalsIgnoreCase(code))
+                .findFirst()
+                .orElse(null);
+    }
+    public static OrderStatus fromName(String name) {
+        return Arrays.stream(values())
+                .filter(f -> f.name().equalsIgnoreCase(name))
+                .findFirst()
+                .orElse(null);
+    }
+
 }

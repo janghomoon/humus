@@ -1,6 +1,8 @@
 package kr.co.humus.order.dto.response;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +13,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
+@Builder
 public class FindOrderResponse {
 
-    private FindOrderData data;
+    private List<FindOrderData> data;
 }

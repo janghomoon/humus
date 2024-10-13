@@ -15,13 +15,13 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class ExternalOrderSaveData {
-    @NotNull
+    @NotNull(message = "주문 아이디는 필수 입니다.")
     private Long orderId;
-    @NotEmpty
+    @NotEmpty(message = "고객 명은 필수 입니다.")
     private String customerName;
-    @NotNull
+    @NotNull(message = "주문 날짜는 필수 입니다.")
     private LocalDateTime orderDate;
-    @NotEmpty
+    @NotEmpty(message = "주문 상태는 필수 입니다.")
     private String orderStatus;
 
 }

@@ -1,3 +1,9 @@
 spring:
     application:
         name: humus
+
+---
+external-api:
+    host: http://localhost:8080
+    get-order: /get-order
+    send-order: /send-order

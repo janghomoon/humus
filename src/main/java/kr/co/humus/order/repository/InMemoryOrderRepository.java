@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import kr.co.humus.order.entity.Order;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Component;
 
 @Component

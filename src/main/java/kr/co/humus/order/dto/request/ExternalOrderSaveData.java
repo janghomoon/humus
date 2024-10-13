@@ -1,24 +1,27 @@
-package kr.co.humus.order.entity;
+package kr.co.humus.order.dto.request;
 
 import java.time.LocalDateTime;
-import kr.co.humus.order.common.enums.OrderStatus;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
-@Builder
 @ToString
-public class Order {
+public class ExternalOrderSaveData {
+    @NotNull
     private Long orderId;
+    @NotEmpty
     private String customerName;
+    @NotNull
     private LocalDateTime orderDate;
-    private OrderStatus orderStatus;
+    @NotEmpty
+    private String orderStatus;
 
 }

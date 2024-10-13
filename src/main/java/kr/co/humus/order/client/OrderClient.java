@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class OrderClient {
 
+
     //외부 주문 연동 통신
     //주문 가져오기 get
 

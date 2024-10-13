@@ -1,5 +1,6 @@
 package kr.co.humus.order.service.impl;
 
+import kr.co.humus.order.dto.request.ExternalOrderSaveRequest;
 import kr.co.humus.order.dto.response.FindOrderData;
 import kr.co.humus.order.dto.response.FindOrderResponse;
 import kr.co.humus.order.service.facade.OrderService;
@@ -22,6 +23,11 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public FindOrderResponse getOrderList() {
+        return null;
+    }
+
+    @Override
+    public Void postExternalOrder(ExternalOrderSaveRequest request) {
         return null;
     }
 }
